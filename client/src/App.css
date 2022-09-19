@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.link {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+.link:hover {
+    color: #fff;
+}
+
+/* nav */
+.toolbar__navigation {
+    display: flex;
+    margin-top: 14px;
+    /* background: pink; */
+}
+
+.toolbar__navigation li {
+    list-style: none;
+    /* background: red; */
+    margin-left: 20px;
+    min-width: 50px;
+}
+
+/* FORM */
+.Login,
+.Login2 {
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    padding: 35px 30px 30px;
+    box-shadow: 0 1px 11px rgba(168, 168, 168, 0.27);
+    text-align: center;
+}
+.Login input {
+    width: 100%;
+    /* padding: 20px 20px;
+    margin-top: 20px;
+    border: 1px solid #e4e4e4;
+    border-radius: 5px;
+    color: #8a8a8a; */
+}
+.Login input:focus {
+    outline: 0px;
+}
+.Login button,
+.Login2 button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px 0;
+    border: 0;
+    background-color: #000;
+    border-radius: 5px;
+    text-transform: uppercase;
+    color: white;
+}
+.Login button a,
+.Login2 button a {
+    text-transform: uppercase;
+    color: white;
+}
+.Login p {
+    margin-top: 30px;
+}
+.Login p a {
+    color: #7a7a7a;
+}
+
+
+//////////////////////////////////// HOME PAGE
+/* Header Home */
+.header-home-page {
+    width: 90%;
+    padding-top: 70px;
+    margin: auto;
+}
+.box__trademark {
+    display: flex;
+    justify-content: space-between;
+}
+.box__trademark  div {
+    width: 200px;
+    height: 80px;
+    background: pink;
+} 
+.box-list-product-header-home {
+    display: flex;
+    width: 100%;
+}
+.box-carosel-header-home {
+    flex: 3;
+}
+.carosel-main-header-home {
+    background-image: url("https://smartfashion.ai/wp-content/uploads/2020/11/phoi-do-voi-ao-form-rong-nam.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 424px;
+    margin-top: 30px;
+}
+.list-group-item-action {
+    width: 90%;
+    height: 45px;
+    background: #fff;
+    color: rgb(17, 17, 17);
+    font-size: 13px;
+    position: relative;
+    z-index: 1;
+    line-height: 30px;
+}
+.list-group-item-action:hover {
+    background-color: rgb(224, 168, 26);
+}
+.list-group {
+    flex: 1;
+}
+/*  */
+.input-seach-header-home {
+    width: 50%;
+    height: 50px;
+    outline: 0; /* bỏ đi viền của input */
+    border: 1px solid rgb(221, 223, 219);
+}
+.button-search-header-home {
+    height: 50px;
+    width: 17%;
+    color: #fff;
+    background-color: #8ec936;
+    border: none;
+}
+.hideClassList {
+    display: none;
+}
+
+/* / */
+.box-list-item-header-home {
+    display: flex;
+}
+.item-header-home1 {
+    height: 170px;
+    background-image: url("https://cf.shopee.vn/file/8dbe66d8aa9bbb96273fe98715bee5f8");
+    flex: 1;
+    margin-right: 30px;
+    margin-top: 30px;
+}
+
+.item-header-home2 {
+    height: 170px;
+    background-image: url("https://cf.shopee.vn/file/35bab12a21692743e95a8b6d4feda4cd_tn");
+    flex: 1;
+    margin-top: 30px;
+}
+
+.item-header-home3 {
+    height: 170px;
+    background-image: url("https://cbu01.alicdn.com/img/ibank/O1CN01Qyb7jC2FOyA7akblk_!!2208857268871-0-cib.jpg_720x720q75.jpg");
+    flex: 1;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+
+
+/* detail page *////////////////////////////////////////////////////////////////////////////////////////
+.wrap__detail__product {
+    padding-top: 90px;
+}
+.content__product__detail { 
+    width: 90%;
+    margin: auto;
+}
+.wrap__groupButton__detail {
+    display: flex;
+    width: 100%;
+}
+.wrap__groupButton__detail div {
+    width: 100%;
+    height: 45px;
+    cursor: pointer;
+}
+.wrap__groupButton__detail .button__buy__now {
+    margin-left: 10px;
+    border: 2px #666666 solid;
+    display: flex;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.wrap__groupButton__detail .button__add__card {
+    display: flex;
+    border: 2px #009e7f solid;
+    display: flex;
+    color: #009e7f;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+/*  */
+.more__information__detail {
+    margin-top: 40px;
+}
+.info-product-detail {
+    width: 90%;
+    margin: auto;
+    display: flex;
+}
+.info-product-detail .info-content-detail {
+    width: 77%;
+}
+.info-product-detail .aa {
+    width: 23%;
+}
+.group__img__mortDetailInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/*  */
+.button__check__shop {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    background: #009e7f;
+    margin-top: 10px;
+    color: #f0f0f0;
+    cursor: pointer;
+}
+.box__support__online {
+    width: 100%;
+    height: 100%;
+    border-top: 2px red solid;
+    border-bottom: 1px #F7F7F7 solid;
+    border-left: 1px #F7F7F7 solid;
+    border-right: 1px #F7F7F7 solid;
+}
+.box__support__online {
+    padding: 20px 20px 20px 20px;
+}
+.box__support__online p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+.CS {
+    width: 100%;
+    height: 100%;
+    background-color: #009E7F;
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+}
+.cs {
+    padding: 15px 10px 0px;
+}
+.cs div{
+    color: #fff;
+    height: 100%;
+    background: orange;
+}
+
+/* .contentDetail {
+    display: flex;
+    padding-top: 50px;
+    width: 85%;
+    flex-wrap: wrap;
+}
+.wrap__groupButton__detail {
+    display: flex;
+    width: 100%;
+}
+.wrap__groupButton__detail div {
+    width: 100%;
+    height: 45px;
+    cursor: pointer;
+}
+.wrap__groupButton__detail .button__buy__now {
+    margin-left: 10px;
+    border: 2px #666666 solid;
+    display: flex;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.wrap__groupButton__detail .button__add__card {
+    display: flex;
+    border: 2px #009e7f solid;
+    display: flex;
+    color: #009e7f;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.button__check__shop {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    background: #009e7f;
+    margin-top: 10px;
+    color: #f0f0f0;
+    cursor: pointer;
+} */
+
+
+
+/* responsive */
+/* Mobile: width < 740px */
+@media only screen and (max-width: 46.1875em) {
+    .header-home-page {
+        width: 99%;
+    }
+
+    .list-group-item-action {
+        width: 100%;
+        height: auto;
+    }
+    .box-list-product-header-home {
+        flex-direction: column; /* xếp thành cột */
+    }
+    .box-list-item-header-home {
+        flex-direction: column;
+        height: 600px;
+    }
+    .item-header-home1 {
+        margin-right: 0;
+        height: 300px;
+        margin-top: 30px;
+    }
+    .item-header-home2 {
+        height: 200px;
+        margin-top: 10px;
+    }
+    .item-header-home3 {
+        height: 90px;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+    .box-carosel-main-header-home {
+        display: none;
+    }
+}
+
+/* Tablet: width >= 740px and width < 1024px */
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+    .header-home-page {
+        width: 99%;
+    }
+    .list-group-item-action {
+        font-size: 11px;
+        height: auto;
+    }
+}
+
+/* Cả Mobile & tablet: width < 1024px */
+@media only screen and (max-width: 63.9375em) {
+}
