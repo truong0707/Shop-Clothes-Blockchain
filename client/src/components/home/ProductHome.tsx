@@ -1,95 +1,112 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
-import MobileStepper from '@mui/material/MobileStepper';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import Slider from 'react-slick';
 
-const steps = [
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+import LeftArrow from '../../assets/images/left-arrow1.png';
+import RightArrow from '../../assets/images/right-arrow1.png';
+import Container from 'react-bootstrap/Container';
+
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import { CardActionArea } from '@mui/material';
+
+import './Home.css';
+
+const products = [
   {
-    label: 'Select campaign settings',
-    description: `For each ad campaign that you create, you can control how much
-              you're willing to spend on clicks and conversions, which networks
-              and geographical locations you want your ads to show on, and more.`,
+    id: '1',
+    name: 'ADDIDAS NEW HAMMER SOLE FOR SPORTS PERSON',
+    price: '$150.00',
+    oldprice: '$250.00',
+    imgPath:
+      'https://preview.colorlib.com/theme/karma/img/product/xp1.jpg.pagespeed.ic.560ZlxqBFw.webp',
   },
   {
-    label: 'Create an ad group',
-    description:
-      'An ad group contains one or more ads which target a shared set of keywords.',
+    id: '2',
+    name: 'ADDIDAS NEW HAMMER SOLE FOR SPORTS PERSON',
+    price: '$150.00',
+    oldprice: '$250.00',
+    imgPath:
+      'https://preview.colorlib.com/theme/karma/img/product/xp1.jpg.pagespeed.ic.560ZlxqBFw.webp',
   },
   {
-    label: 'Create an ad',
-    description: `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`,
+    id: '3',
+    name: 'ADDIDAS NEW HAMMER SOLE FOR SPORTS PERSON',
+    price: '$150.00',
+    oldprice: '$250.00',
+    imgPath:
+      'https://preview.colorlib.com/theme/karma/img/product/xp1.jpg.pagespeed.ic.560ZlxqBFw.webp',
+  },
+  {
+    id: '4',
+    name: 'ADDIDAS NEW HAMMER SOLE FOR SPORTS PERSON',
+    price: '$150.00',
+    oldprice: '$250.00',
+    imgPath:
+      'https://preview.colorlib.com/theme/karma/img/product/xp1.jpg.pagespeed.ic.560ZlxqBFw.webp',
+  },
+  {
+    id: '5',
+    name: 'ADDIDAS NEW HAMMER SOLE FOR SPORTS PERSON',
+    price: '$150.00',
+    oldprice: '$250.00',
+    imgPath:
+      'https://preview.colorlib.com/theme/karma/img/product/xp1.jpg.pagespeed.ic.560ZlxqBFw.webp',
+  },
+  {
+    id: '6',
+    name: 'ADDIDAS NEW HAMMER SOLE FOR SPORTS PERSON',
+    price: '$150.00',
+    oldprice: '$250.00',
+    imgPath:
+      'https://preview.colorlib.com/theme/karma/img/product/xp1.jpg.pagespeed.ic.560ZlxqBFw.webp',
   },
 ];
 
 export default function ProductHome() {
-  const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = steps.length;
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }: any) => (
+    <img src={LeftArrow} alt="prevArrow" {...props} />
+  );
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }: any) => (
+    <img src={RightArrow} alt="nextArrow" {...props} />
+  );
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    initialSlide: 1,
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
   };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
   return (
-    <Box sx={{ width: '100%', flexGrow: 1 }}>
-      <Paper
-        square
-        elevation={0}
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          height: 50,
-          pl: 2,
-          bgcolor: 'background.default',
-        }}
-      >
-        <Typography>{steps[activeStep].label}</Typography>
-      </Paper>
-      <Box sx={{ height: 255, maxWidth: 400, width: '100%', p: 2 }}>
-        {steps[activeStep].description}
-      </Box>
-      <MobileStepper
-        variant="text"
-        steps={maxSteps}
-        position="static"
-        activeStep={activeStep}
-        nextButton={
-          <Button
-            size="small"
-            onClick={handleNext}
-            disabled={activeStep === maxSteps - 1}
-          >
-            Next
-            {theme.direction === 'rtl' ? (
-              <KeyboardArrowLeft />
-            ) : (
-              <KeyboardArrowRight />
-            )}
-          </Button>
-        }
-        backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-            {theme.direction === 'rtl' ? (
-              <KeyboardArrowRight />
-            ) : (
-              <KeyboardArrowLeft />
-            )}
-            Back
-          </Button>
-        }
-      />
-    </Box>
+    <Container className="product-home">
+      <Slider {...settings}>
+        {products.map((item, index) => {
+          return (
+            <Card sx={{ maxWidth: 310 }}>
+              <CardActionArea>
+                <CardMedia
+                  className="card-image"
+                  component="img"
+                  height="140"
+                  image={item.imgPath}
+                  alt="green iguana"
+                />
+                <CardContent>
+                  <b>{item.name}</b>
+                  <p>{item.price}</p>
+                  <del>{item.oldprice}</del>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          );
+        })}
+      </Slider>
+    </Container>
   );
 }
