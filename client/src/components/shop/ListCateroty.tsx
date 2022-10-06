@@ -26,7 +26,7 @@ export default function ListCategory() {
             component="nav"
             aria-labelledby="nested-list-subheader"
         >
-            <ListItemButton sx={{ background: '#828BB3', ":hover": { background: '#828BB3' } }} onClick={handleClick}>
+            <ListItemButton sx={{ background: '#90C43C', ":hover": { background: '#90C43C' } }} onClick={handleClick}>
                 <ListItemText sx={{ height: '35px', padding: '5px' }} primary="Browse Categories" />
                 {open ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>

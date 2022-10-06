@@ -35,7 +35,7 @@ function SamplePrevArrow(props: propsCarosel) {
 export default function SliderProduct() {
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:8080/api/v1/products-courses`).then(data => setProduct(data.data['productCourses']))
+        // axios.get(`http://localhost:8080/api/v1/products-courses`).then(data => setProduct(data.data['productCourses']))
     }, [])
 
     const settings = {
@@ -77,7 +77,7 @@ export default function SliderProduct() {
     return (
         <div>
             <Slider {...settings} className="slider_Product" >
-                {product.map((data: data) => (
+                {/* {product.map((data: data) => (
                     <Link to={`/detail-product/${data._id}`}>
                         <div className="w-[233px] cursor-pointer">
                             <p><img src={data.imgCourses} alt="" /></p>
@@ -87,7 +87,48 @@ export default function SliderProduct() {
                         </div>
                     </Link>
 
-                ))}
+                ))} */}
+                <div className="w-[233px] cursor-pointer">
+                    <p><img src="https://preview.colorlib.com/theme/karma/img/xr9.jpg.pagespeed.ic.f9IbStkaTE.webp" alt="" /></p>
+                    <p><b>ss</b></p>
+                    <p>đ</p>
+                    <p>ádfasdasdasd</p>
+                </div>
+
+                <div className="w-[233px] cursor-pointer">
+                    <p><img src="https://preview.colorlib.com/theme/karma/img/xr9.jpg.pagespeed.ic.f9IbStkaTE.webp" alt="" /></p>
+                    <p><b>ss</b></p>
+                    <p>đ</p>
+                    <p>ádfasdasdasd</p>
+                </div>
+
+                <div className="w-[233px] cursor-pointer">
+                    <p><img src="https://preview.colorlib.com/theme/karma/img/xr9.jpg.pagespeed.ic.f9IbStkaTE.webp" alt="" /></p>
+                    <p><b>ss</b></p>
+                    <p>đ</p>
+                    <p>ádfasdasdasd</p>
+                </div>
+
+                <div className="w-[233px] cursor-pointer">
+                    <p><img src="https://preview.colorlib.com/theme/karma/img/xr9.jpg.pagespeed.ic.f9IbStkaTE.webp" alt="" /></p>
+                    <p><b>ss</b></p>
+                    <p>đ</p>
+                    <p>ádfasdasdasd</p>
+                </div>
+
+                <div className="w-[233px] cursor-pointer">
+                    <p><img src="https://preview.colorlib.com/theme/karma/img/xr9.jpg.pagespeed.ic.f9IbStkaTE.webp" alt="" /></p>
+                    <p><b>ss</b></p>
+                    <p>đ</p>
+                    <p>ádfasdasdasd</p>
+                </div>
+
+                <div className="w-[233px] cursor-pointer">
+                    <p><img src="https://preview.colorlib.com/theme/karma/img/xr9.jpg.pagespeed.ic.f9IbStkaTE.webp" alt="" /></p>
+                    <p><b>ss</b></p>
+                    <p>đ</p>
+                    <p>ádfasdasdasd</p>
+                </div>
             </Slider>
 
         </div>
