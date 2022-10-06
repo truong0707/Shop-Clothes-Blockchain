@@ -56,7 +56,7 @@ export default function CardProduct() {
       <CardMedia
         component="img"
         height="194"
-        image="https://mui.com/static/images/cards/paella.jpg"
+        image="https://bizweb.dktcdn.net/thumb/large/100/091/133/products/3-8e4c9433-08e2-43e2-8ba4-778c5bbca788.jpg?v=1466415216537"
         alt="Paella dish"
       />
       <CardContent>
