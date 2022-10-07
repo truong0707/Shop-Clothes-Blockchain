@@ -1,25 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+
+
+
 /* Header Home */
 .header-home-page {
     width: 90%;
     padding-top: 70px;
     margin: auto;
 }
+
 .box__trademark {
     display: flex;
     justify-content: space-between;
 }
-.box__trademark  div {
+
+.box__trademark div {
     width: 200px;
     height: 80px;
     background: pink;
-} 
+}
+
 .box-list-product-header-home {
     display: flex;
     width: 100%;
 }
+
 .box-carosel-header-home {
     flex: 3;
 }
+
 .carosel-main-header-home {
     background-image: url("https://smartfashion.ai/wp-content/uploads/2020/11/phoi-do-voi-ao-form-rong-nam.jpg");
     background-repeat: no-repeat;
@@ -27,6 +36,7 @@
     height: 424px;
     margin-top: 10px;
 }
+
 .list-group-item-action {
     width: 90%;
     height: 45px;
@@ -37,19 +47,24 @@
     z-index: 1;
     line-height: 30px;
 }
+
 .list-group-item-action:hover {
     background-color: rgb(224, 168, 26);
 }
+
 .list-group {
     flex: 1;
 }
+
 /*  */
 .input-seach-header-home {
     width: 50%;
     height: 50px;
-    outline: 0; /* bỏ đi viền của input */
+    outline: 0;
+    /* bỏ đi viền của input */
     border: 1px solid rgb(221, 223, 219);
 }
+
 .button-search-header-home {
     height: 50px;
     width: 17%;
@@ -57,6 +72,7 @@
     background: rgb(144, 196, 60);
     border: none;
 }
+
 .hideClassList {
     display: none;
 }
@@ -65,16 +81,19 @@
 .body__home__page {
     width: 100%;
 }
+
 .wrapper__content__home {
     width: 90%;
     margin: auto;
 }
+
 .img__Featured {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
 }
+
 .img__Featured .card {
     width: 390px;
     border-radius: 0;
@@ -94,6 +113,7 @@
 .box-list-item-header-home {
     display: flex;
 }
+
 .item-header-home1 {
     height: 170px;
     background-image: url("https://cf.shopee.vn/file/8dbe66d8aa9bbb96273fe98715bee5f8");
@@ -130,27 +150,34 @@
         width: 100%;
         height: auto;
     }
+
     .box-list-product-header-home {
-        flex-direction: column; /* xếp thành cột */
+        flex-direction: column;
+        /* xếp thành cột */
     }
+
     .box-list-item-header-home {
         flex-direction: column;
         height: 600px;
     }
+
     .item-header-home1 {
         margin-right: 0;
         height: 300px;
         margin-top: 30px;
     }
+
     .item-header-home2 {
         height: 200px;
         margin-top: 10px;
     }
+
     .item-header-home3 {
         height: 90px;
         margin-top: 10px;
         margin-left: 0;
     }
+
     .box-carosel-main-header-home {
         display: none;
     }
@@ -161,6 +188,7 @@
     .header-home-page {
         width: 99%;
     }
+
     .list-group-item-action {
         font-size: 11px;
         height: auto;
@@ -168,5 +196,185 @@
 }
 
 /* Cả Mobile & tablet: width < 1024px */
-@media only screen and (max-width: 63.9375em) {
+@media only screen and (max-width: 63.9375em) {}
+
+
+
+/*Nguyen Van Son*/
+
+/* Css banner HomePage */
+.image-parents {
+    position: relative;
+}
+
+.image-parents .content {
+    width: 436px;
+    position: absolute;
+    left: 100px;
+    top: 200px;
+}
+
+.image-parents .content b {
+    display: block;
+    font-family: 'Lora', serif;
+    font-size: 50px
+}
+
+.image-parents .content i {
+    display: block;
+    font-family: 'Lora', serif;
+    text-align: justify;
+    color: white;
+    letter-spacing: 0.6;
+
+}
+
+.image-parents .content .button-banner {
+    margin-top: 20px;
+    background: linear-gradient(90deg, #ffba00 0%, #ff6c00 100%) !important;
+    box-shadow: 0 10px 20px rgb(255 108 0 / 20%);
+}
+
+
+/* Css banner serviceHome */
+
+.serviceHome {
+    font-family: 'Lora', serif;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 10%);
+}
+
+.serviceHome .body-service-home {
+    border-right-width: 0.5px;
+    border-right-style: solid;
+    border-right-color: gray;
+}
+
+.serviceHome .body-service-home .body-service-home-last-one {
+    border: none;
+}
+
+.serviceHome .serviceHome-parents {
+    padding: 50px 50px;
+}
+
+.serviceHome .serviceHome-parents i .icon-service-home {
+    font-size: 40px !important;
+}
+
+.serviceHome .serviceHome-parents i {
+    display: block;
+    right: 50%;
+}
+
+
+/* Css Deal */
+
+.Deal {
+    margin-top: 50px;
+}
+
+.Deal img {
+    width: 100%;
+    padding: 7px;
+}
+
+.Deal img:hover {
+    opacity: 0.8;
+}
+
+.Deal .body-deal {
+    position: relative;
+}
+
+.Deal .body-deal p {
+    font-family: 'Lora', serif;
+    text-transform: uppercase;
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    display: none;
+    animation: content both 1s;
+}
+
+.body-deal:hover p {
+    display: block;
+
+}
+
+@keyframes content {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
+/* title home */
+
+.container-title {
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 3rem;
+    position: relative;
+    animation: modalFadeIn infinite .5s;
+}
+
+.container-title p {
+    display: inline-block;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ff6c00;
+}
+
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(0px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(-10);
+    }
+}
+
+
+/* Product Home */
+
+.product-home {
+    margin-top: 2rem;
+}
+
+.product-home .card-image {
+    height: 100%;
+}
+
+.product-home b {
+    /* text-align: center; */
+    color: #ff6c00;
+    display: block;
+}
+
+.product-home p,
+del {
+    display: inline-block;
+}
+
+.product-home p {
+    padding: 10px 20px 0 0px;
+}
+
+.product-home del {
+    color: gray;
+    opacity: 0.5;
 }

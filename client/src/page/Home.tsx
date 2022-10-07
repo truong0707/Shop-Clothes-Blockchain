@@ -1,14 +1,24 @@
-import React from 'react'
-import BodyHome from '../components/home/BodyHome'
-import HeaderHome from '../components/home/HeaderHome'
-import Seketon from '../components/Seketon'
+import React from 'react';
+import Banner from '../components/home/Banner';
+// import BodyHome from '../components/home/BodyHome';
+import { Deal } from '../components/home/Deal';
+import HeaderHome from '../components/home/HeaderHome';
+import ProductHome from '../components/home/ProductHome';
+import { ServiceHome } from '../components/home/ServiceHome';
+import { TitleHome } from '../components/home/TitleHome';
+import Seketon from '../components/Seketon';
 
 export default function Home() {
   return (
-    <div className='' style={{marginTop:'10px'}}>
+    <div className="">
+      <Banner />
+      <ServiceHome />
+      <Deal />
+      <TitleHome />
+      <ProductHome />
       <HeaderHome />
-      <BodyHome />
+      {/* <BodyHome /> */}
       {/* <Seketon/> */}
     </div>
-  )
+  );
 }
