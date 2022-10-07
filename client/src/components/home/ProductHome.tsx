@@ -7,16 +7,12 @@ import LeftArrow from '../../assets/images/left-arrow1.png';
 import RightArrow from '../../assets/images/right-arrow1.png';
 import Container from 'react-bootstrap/Container';
 
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea } from '@mui/material';
-
 import './Home.css';
+import CardProduct from '../CardProduct';
 
 const products = [
   {
-    id: '1',
+    id: 1,
     name: 'ADDIDAS NEW HAMMER SOLE FOR SPORTS PERSON',
     price: '$150.00',
     oldprice: '$250.00',
@@ -24,7 +20,7 @@ const products = [
       'https://preview.colorlib.com/theme/karma/img/product/xp1.jpg.pagespeed.ic.560ZlxqBFw.webp',
   },
   {
-    id: '2',
+    id: 2,
     name: 'ADDIDAS NEW HAMMER SOLE FOR SPORTS PERSON',
     price: '$150.00',
     oldprice: '$250.00',
@@ -32,7 +28,7 @@ const products = [
       'https://preview.colorlib.com/theme/karma/img/product/xp1.jpg.pagespeed.ic.560ZlxqBFw.webp',
   },
   {
-    id: '3',
+    id: 3,
     name: 'ADDIDAS NEW HAMMER SOLE FOR SPORTS PERSON',
     price: '$150.00',
     oldprice: '$250.00',
@@ -40,7 +36,7 @@ const products = [
       'https://preview.colorlib.com/theme/karma/img/product/xp1.jpg.pagespeed.ic.560ZlxqBFw.webp',
   },
   {
-    id: '4',
+    id: 4,
     name: 'ADDIDAS NEW HAMMER SOLE FOR SPORTS PERSON',
     price: '$150.00',
     oldprice: '$250.00',
@@ -48,7 +44,7 @@ const products = [
       'https://preview.colorlib.com/theme/karma/img/product/xp1.jpg.pagespeed.ic.560ZlxqBFw.webp',
   },
   {
-    id: '5',
+    id: 5,
     name: 'ADDIDAS NEW HAMMER SOLE FOR SPORTS PERSON',
     price: '$150.00',
     oldprice: '$250.00',
@@ -56,7 +52,7 @@ const products = [
       'https://preview.colorlib.com/theme/karma/img/product/xp1.jpg.pagespeed.ic.560ZlxqBFw.webp',
   },
   {
-    id: '6',
+    id: 6,
     name: 'ADDIDAS NEW HAMMER SOLE FOR SPORTS PERSON',
     price: '$150.00',
     oldprice: '$250.00',
@@ -86,26 +82,16 @@ export default function ProductHome() {
   return (
     <Container className="product-home">
       <Slider {...settings}>
-        {products.map((item, index) => {
-          return (
-            <Card sx={{ maxWidth: 310 }}>
-              <CardActionArea>
-                <CardMedia
-                  className="card-image"
-                  component="img"
-                  height="140"
-                  image={item.imgPath}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <b>{item.name}</b>
-                  <p>{item.price}</p>
-                  <del>{item.oldprice}</del>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          );
-        })}
+        {products.map((data: any, index) => (
+          <CardProduct
+            key={data.id}
+            id={data.id}
+            name={data.name}
+            price={data.price}
+            oldprice={data.oldprice}
+            imgPath={data.imgPath}
+          />
+        ))}
       </Slider>
     </Container>
   );
