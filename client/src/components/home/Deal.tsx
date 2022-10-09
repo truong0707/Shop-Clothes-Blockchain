@@ -5,12 +5,12 @@ import Col from 'react-bootstrap/Col';
 
 export const Deal = () => {
   return (
-    <Container className="Deal">
+    <Container className="Deal mb-deal">
       <Row>
         <Col xl={8} xxl={8}>
           <Row>
             <Col xl={8} xxl={8}>
-              <div className="body-deal">
+              <div className="body-deal mb-body-deal">
                 <img
                   src="https://preview.colorlib.com/theme/karma/img/category/xc1.jpg.pagespeed.ic.XqvaEBoKy8.webp"
                   alt="Deal"
@@ -49,7 +49,7 @@ export const Deal = () => {
           </Row>
         </Col>
         <Col xl={4} xxl={4}>
-          <div className="body-deal">
+          <div className="body-deal mb-deal-other">
             <img
               style={{ width: '96%' }}
               src="https://preview.colorlib.com/theme/karma/img/category/xc5.jpg.pagespeed.ic.n5CZTy5QEq.webp"

@@ -1,10 +1,5 @@
-// icon
-// import { FaBookmark } from "react-icons/fa";
 import '../components/components.css';
 import { Link } from 'react-router-dom';
-// import { useEffect, useState } from 'react';
-
-import Avatar from '@mui/material/Avatar';
 
 import './components.css';
 
@@ -13,7 +8,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import Fab from '@mui/material/Fab';
-import * as React from 'react';
 
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
@@ -22,9 +16,6 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 import FitbitIcon from '@mui/icons-material/Fitbit';
-
-import Fade from '@mui/material/Fade';
-import Zoom from '@mui/material/Zoom';
 
 interface MyProps {
   id: Number;
@@ -35,16 +26,6 @@ interface MyProps {
 }
 
 export default function CardProduct(props: MyProps) {
-  const [open, setOpen] = React.useState(false);
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
   const IconPrd = [
     {
       id: 1,
@@ -68,19 +49,7 @@ export default function CardProduct(props: MyProps) {
     },
   ];
   return (
-    // <Link style={{ textDecoration: 'none' }} to={`/detail-product/${props.productId}`}>
-    //     <div className="card-product-body">
-    //         <img src={props.imageProduct} className="card-img-top" alt="..." />
-    //         <div className="card-body">
-    //             <p className="card-title">{props.nameProduct}</p>
-    //             <p className="card-text">{props.descriptionProduct}</p>
-    //             <p>{props.priceProduct}$</p>
-    //         </div>
-    //     </div>
-    //     <div className="button-buy-card" /* onClick={() => addToCart(props)} */><p>ADD TO CART</p></div>
-    // </Link>
-    // }
-    <Card sx={{ maxWidth: 310 }}>
+    <Card sx={{ maxWidth: 280, marginBottom: '10px' }} className="mb-card">
       <CardActionArea>
         <CardMedia
           className="card-image"
@@ -96,7 +65,7 @@ export default function CardProduct(props: MyProps) {
         </CardContent>
       </CardActionArea>
       {IconPrd.map((icon) => (
-        <div className="link-product" key={icon.id}>
+        <div className="link-product md-link-product" key={icon.id}>
           <Tooltip title={icon.title}>
             <Link to={'/Shop'}>
               <Button className="btn-icon-prd">

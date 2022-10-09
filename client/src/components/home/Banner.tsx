@@ -17,21 +17,24 @@ const images = [
   {
     id: '1',
     title: 'Content Clothes',
-    content: 'This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.',
+    content:
+      'This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.',
     imgPath:
       'https://img.freepik.com/premium-photo/light-colored-womens-summer-clothes-hanger_176873-10340.jpg?w=1060',
   },
   {
     id: '2',
     title: 'Content Clothes',
-    content: 'This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.',
+    content:
+      'This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.',
     imgPath:
       'https://img.freepik.com/free-vector/banner-with-handrawn-elements-sale_125540-187.jpg?w=1060&t=st=1664807206~exp=1664807806~hmac=9b329b4d8a44ce25283905099840c52ad6830bf228960b228bdf1741b9f796e3',
   },
   {
     id: '3',
     title: 'Content Clothes',
-    content: 'This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.',
+    content:
+      'This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.',
     imgPath:
       'https://img.freepik.com/premium-photo/women-s-summer-accessories_86156-1048.jpg?w=996',
   },
@@ -55,7 +58,10 @@ function Banner() {
   };
 
   return (
-    <Box sx={{ width: "100%", flexGrow: 1, marginTop: "64px"}}>
+    <Box
+      sx={{ width: '100%', flexGrow: 1, marginTop: '64px' }}
+      className="mb-banner"
+    >
       <Paper
         square
         elevation={0}
@@ -65,8 +71,7 @@ function Banner() {
           pl: 2,
           bgcolor: 'background.default',
         }}
-      >
-      </Paper>
+      ></Paper>
       <AutoPlaySwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
@@ -74,9 +79,10 @@ function Banner() {
         enableMouseEvents
       >
         {images.map((step, index) => (
-          <div key={step.id} className='image-parents'>
+          <div key={step.id} className="image-parents">
             {Math.abs(activeStep - index) <= 2 ? (
               <Box
+                className="mb-banner-img"
                 component="img"
                 sx={{
                   height: 650,
@@ -88,12 +94,16 @@ function Banner() {
                 alt={step.id}
               />
             ) : null}
-            <div className='content'>
-                <b>{step.title}</b>
-                <i>{step.content}</i>
-                <Button className='button-banner' variant="contained" startIcon={<ControlPointIcon />}>
+            <div className="content">
+              <b>{step.title}</b>
+              <i>{step.content}</i>
+              <Button
+                className="button-banner mb-button-banner"
+                variant="contained"
+                startIcon={<ControlPointIcon />}
+              >
                 Thêm vào túi
-                </Button>
+              </Button>
             </div>
           </div>
         ))}

@@ -33,19 +33,22 @@ const service = [
 export const ServiceHome = () => {
   return (
     <Container>
-      <div className="serviceHome">
-        <Container className="serviceHome-parents">
+      <div className="serviceHome mb-service-home">
+        <Container className="serviceHome-parents mb-service-home-parents">
           <Row>
             {service.map((step, index) => (
-              <Col xl={3} xxl={3}>
-                <div key={step.id} className="body-service-home">
+              <Col sm={12} xl={3} xxl={3}>
+                <div
+                  key={step.id}
+                  className="body-service-home mb-body-service"
+                >
                   <i>{step.icon}</i>
                   <b>{step.title}</b>
                   <p>{step.content}</p>
                 </div>
               </Col>
             ))}
-            <Col xl={3} xxl={3}>
+            <Col sm={12} xl={3} xxl={3}>
               <div className="body-service-home-last-one">
                 <i>
                   <PaidIcon className="icon-service-home" />,
