@@ -37,11 +37,6 @@
 }
 .Login input {
     width: 100%;
-    /* padding: 20px 20px;
-    margin-top: 20px;
-    border: 1px solid #e4e4e4;
-    border-radius: 5px;
-    color: #8a8a8a; */
 }
 .Login input:focus {
     outline: 0px;
@@ -73,7 +68,6 @@
 /* SHOP PAGE */  /* date create: 30/9/2022  */
 .wrap_shop {
     margin-top: 64px;
-    /* background: red; */
 }
 .body_shop {
     /* background: pink; */
