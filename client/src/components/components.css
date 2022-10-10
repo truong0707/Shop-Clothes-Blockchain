@@ -34,26 +34,37 @@
     float: left;
 }
 
-.box-info-footer {
-    margin-top: 50px;
-    color: #000;
+/* FOOTER APP CSS */ /* create day 10/07/2022 */
+.wrap_footer_app {
+    min-height: 480px;
+    background: #222222;
+    margin-top: 40px;
+    padding-top: 90px;
 }
-
-.button-subscribe {
-    background-color: #7FAD39;
-    border: none;
-    height: 45px;
+.title_item_footer {
     color: #fff;
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 19px;
 }
-
-.box-investors {
+.content_item_footer {
+    color: #636363
+}
+.input_footer {
+    width: 85%;
+}
+.group_img_footer {
     display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    width: 100%; 
+    justify-content: flex-start;
+}
+.group_img_footer p {
+    margin-bottom: 7px;
+    margin-right: 7px;
 }
 
-.cc {
-    width: 600px;
-    margin-left: '10px'
-}
 
 
 /* Card product  */
@@ -275,6 +286,9 @@ div.card-product-body:hover+div.button-buy-card {
 
 /* Tablet: width >= 740px and width < 1024px */
 @media only screen and (min-width: 430px) and (max-width: 1021px) {
+    .Deals_of_Week {
+        height: 663px;
+    }
     .Deals_of_Week .img_deals {
         width: 22%;
         display: none;
@@ -297,10 +311,16 @@ div.card-product-body:hover+div.button-buy-card {
     .Deals_of_Week_items ul img {
         width: 25%;
     }
+    .input_footer {
+        width: 100%;
+    }
 }
 
 /* Cả Mobile & tablet: width < 1024px */
 @media only screen and (max-width: 430px) {
+    .Deals_of_Week {
+        height: 1420px;
+    }
     .Deals_of_Week .img_deals {
         width: 100%;
     }
@@ -323,6 +343,9 @@ div.card-product-body:hover+div.button-buy-card {
         height: 80px;
         padding: 0;
         margin-top: 20px;
+    }
+    .input_footer {
+        width: 100%;
     }
 }
 
