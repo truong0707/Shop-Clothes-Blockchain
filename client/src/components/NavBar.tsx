@@ -26,6 +26,10 @@ import { useDispatch } from 'react-redux';
 
 import Logo from '../assets/images/logoweb.png';
 
+import { UserAuth } from '../store/context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+
 interface Props {
   /**
    * Injected by the documentation to work in an iframe.
@@ -166,6 +170,68 @@ export default function HideAppBar(props: Props) {
     </Menu>
   );
 
+  const { user, logOut } = UserAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (user != null) {
+      navigate('/');
+    }
+  }, [user]);
+
+  const renderMenu1 = (
+    <div>
+      <Menu
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        id={menuId}
+        keepMounted
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        open={isMenuOpen}
+        onClose={handleMenuClose}
+      >
+        {user?.displayName ? (
+          <>
+            <Link to="/profile">
+              <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+            </Link>
+
+            <MenuItem onClick={handleSignOut}>Đăng xuất</MenuItem>
+            <hr />
+            <MenuItem>Welcome, {user?.displayName}</MenuItem>
+            <MenuItem>
+              <img src={user?.photoURL} alt={user?.displayName} />
+            </MenuItem>
+          </>
+        ) : (
+          <>
+            <Link to="/login">
+              <MenuItem>Đăng Nhập</MenuItem>
+            </Link>
+
+            <Link to="/register">
+              <MenuItem onClick={handleMenuClose}>Đăng Ký</MenuItem>
+            </Link>
+          </>
+        )}
+      </Menu>
+    </div>
+  );
+
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
@@ -224,7 +290,7 @@ export default function HideAppBar(props: Props) {
       <HideOnScroll {...props}>
         <Box sx={{ flexGrow: 1 }}>
           {renderMobileMenu}
-          {renderMenu}
+          {renderMenu1}
 
           <AppBar style={{ background: '#000' }}>
             <Toolbar>
