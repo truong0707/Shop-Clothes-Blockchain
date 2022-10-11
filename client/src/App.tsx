@@ -3,11 +3,8 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './page/Home';
 import NavBar from './components/NavBar';
-import Login from './page/Login';
-import Register from './page/Register';
 import { useSelector } from "react-redux";
 import DetailProduct from './page/DetailProduct';
-import Footer from './components/Footer';
 import Shop from './page/Shop';
 import Blog from './page/Blog';
 import NotFound from './page/NotFound';
@@ -46,8 +43,8 @@ function App() {
 
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={'login'} />
+            <Route path='/register' element={'register'} />
             <Route path='/shop' element={<Shop />} />
             <Route path='/blog' element={<Blog />} />
             <Route path='/detail-product/:productId' element={user ? <DetailProduct /> : <Navigate to='/login' />} />
@@ -55,7 +52,7 @@ function App() {
             <Route path='/test-blockhain' element={<Testblockchain />} />
           </Routes>
 
-          <Footer />
+
         </Router>
 
     </div>
