@@ -4,69 +4,49 @@ export default function Footer() {
 
     return (
         <>
-            {/* <div className="footerApp" style={{ height: "40%", background: "#f6f8f8", marginTop: "40px" }}>
-                <div className="container box-footer">
+            <div className="wrap_footer_app">
+                <div className='container'>
                     <div className='row'>
-                        <div className='col-xl-4 box-info-footer' >
-                            <h5 style={{ height: "50px" }}>School</h5>
-                            <p>Address: 60-49 Road 11378</p>
-                            <p>New York</p>
-                            <p>Phone: +65 11.188.888</p>
-                            <p>Email: hello@colorlib.com</p>
+                        <div className='col-lg-3 col-md-6 col-sm-6'>
+                            <p className='title_item_footer'>About Us</p>
+                            <p className='content_item_footer'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
                         </div>
-                        <div className='col-xl-4 box-info-footer' >
-                            <div className="row">
-                                <h5 style={{ marginBottom: "20px" }}>Useful Links</h5>
-                                <div className="col">
-                                    <p>About Us</p>
-                                    <p>About Our Shop</p>
-                                    <p>Secure Shopping</p>
-                                    <p>Delivery infomation</p>
-                                    <p>Privacy Policy</p>
-                                    <p>Our Sitemap</p>
-                                </div>
-                                <div className="col">
-                                    <p>Who We Are</p>
-                                    <p>Our Services</p>
-                                    <p>Projects</p>
-                                    <p>Contact</p>
-                                    <p>Innovation</p>
-                                    <p>Testimonials</p>
-                                </div>
-                            </div>
+
+                        <div className='col-lg-4 col-md-6 col-sm-6'>
+                            <p className='title_item_footer'>Newsletter</p>
+
+                            <p className='content_item_footer'>Stay update with our latest</p>
+                            <input className='input_footer'/>
                         </div>
-                        <div className='col-xl-4 box-info-footer' >
-                            <h5 style={{ marginBottom: "10px" }}>Join Our Newsletter Now</h5>
-                            <p>Get E-mail updates about our latest shop and special offers.</p>
 
-                            <form>
-                                <input style={{ height: "45px", width: "236px" }} placeholder="Email your mail" />
-                                <button className="button-subscribe">SUBSCRIBE</button>
-                            </form>
-
+                        <div className='col-lg-3 col-md-6 col-sm-6'>
                             <div>
-                                <p>f</p>
-                                <p>f</p>
-                                <p>f</p>
-                                <p>f</p>
+                                <h6 className='title_item_footer mb-20'>Instragram Feed</h6>
                             </div>
 
+                            <div className='group_img_footer'>
+                                <p><img src='https://preview.colorlib.com/theme/karma/img/xi8.jpg.pagespeed.ic.k_7KLaTiSo.webp' alt='' /></p>
+                                <p><img src='https://preview.colorlib.com/theme/karma/img/xi2.jpg.pagespeed.ic.3857ToO-Y0.webp' alt='' /></p>
+                                <p><img src='https://preview.colorlib.com/theme/karma/img/xi1.jpg.pagespeed.ic.jfLZK-H-XF.webp' alt='' /></p>
+                                <p><img src='https://preview.colorlib.com/theme/karma/img/xi3.jpg.pagespeed.ic.Xa_CKOsVWT.webp' alt='' /></p>
+                                <p><img src='https://preview.colorlib.com/theme/karma/img/xi4.jpg.pagespeed.ic.RlyWl7MZsa.webp' alt='' /></p>
+                                <p><img src='https://preview.colorlib.com/theme/karma/img/xi7.jpg.pagespeed.ic.tCrquJ1b2e.webp' alt='' /></p>
+                                <p><img src='https://preview.colorlib.com/theme/karma/img/xi5.jpg.pagespeed.ic.EEPJ2CxYEb.webp' alt='' /></p>
+                                <p><img src='https://preview.colorlib.com/theme/karma/img/xi6.jpg.pagespeed.ic.eP8-siz_Gr.webp' alt='' /></p>
+                            </div>
+                        </div>
+
+                        <div className='col-lg-2 col-md-6 col-sm-6'>
+                            <div>
+                                <h6 className='title_item_footer'>Follow Us</h6>
+                            </div>
                         </div>
                     </div>
-                    <div>-------------------------------------------------------</div>
-                    <div className="row">
-                        <p className="col-xl-8">Copyright ©2022 All rights reserved | This template is made with  by <a href=""> Colorlib</a></p>
-                        <div className="col box-investors">
-                            <p className="col">1</p>
-                            <p className="col">1</p>
-                            <p className="col">1</p>
-                            <p className="col">1</p>
-                            <p className="col">1</p>
-                        </div>
-                    </div>
+
+                    <p style={{ textAlign: 'center', marginTop:'70px', color: '#636363' }}>Copyright ©2022 All rights reserved | This template is made with  by Colorlib</p>
                 </div>
 
-            </div> */}
+            </div>
         </>
     );
 }

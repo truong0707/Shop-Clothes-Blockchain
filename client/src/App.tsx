@@ -51,10 +51,21 @@ function App() {
       <div className="App">
         <Router>
           <NavBar children={undefined} />
-
           <Routes>
             <Route path="/" element={<Home />} />
-
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={'login'} />
+              <Route path="/register" element={'register'} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route
+                path="/detail-product/:productId"
+                element={user ? <DetailProduct /> : <Navigate to="/login" />}
+              />
+              <Route path="*" element={<NotFound />} />
+              <Route path="/test-blockhain" element={<Testblockchain />} />
+            </Routes>
             <Route
               path="/profile"
               element={
@@ -74,7 +85,6 @@ function App() {
             <Route path="*" element={<NotFound />} />
             <Route path="/test-blockhain" element={<Testblockchain />} />
           </Routes>
-
           <Footer />
         </Router>
       </div>
