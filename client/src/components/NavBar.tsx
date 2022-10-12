@@ -24,6 +24,11 @@ import { StateStore } from '../App';
 import { logout } from '../store/redux/actions/userActions';
 import { useDispatch } from 'react-redux';
 
+import Logo from '../assets/images/logoweb.png';
+
+import { UserAuth } from '../store/context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 interface Props {
   /**
@@ -32,7 +37,7 @@ interface Props {
    */
   window?: () => Window;
   // children: React.ReactElement;
-  children: any,
+  children: any;
 }
 
 function HideOnScroll(props: Props) {
@@ -100,7 +105,7 @@ export default function HideAppBar(props: Props) {
   const handleLogout = () => {
     logAutPromise(dispatch);
     // dispatch(logout())
-  }
+  };
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
@@ -143,27 +148,88 @@ export default function HideAppBar(props: Props) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      {
-        getuser ?
+      {getuser ? (
+        <>
+          <Link to="/profile">
+            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+          </Link>
+
+          <MenuItem onClick={handleLogout}>Đăng xuất</MenuItem>
+        </>
+      ) : (
+        <>
+          <Link to="/login">
+            <MenuItem onClick={handleMenuClose}>Đăng Nhập</MenuItem>
+          </Link>
+
+          <Link to="/register">
+            <MenuItem onClick={handleMenuClose}>Đăng Ký</MenuItem>
+          </Link>
+        </>
+      )}
+    </Menu>
+  );
+
+  const { user, logOut } = UserAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (user != null) {
+      navigate('/');
+    }
+  }, [user]);
+
+  const renderMenu1 = (
+    <div>
+      <Menu
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        id={menuId}
+        keepMounted
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        open={isMenuOpen}
+        onClose={handleMenuClose}
+      >
+        {user?.displayName ? (
           <>
-            <Link to='/profile'>
+            <Link to="/profile">
               <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
             </Link>
 
-            <MenuItem onClick={handleLogout} >Đăng xuất</MenuItem>
-          </> :
-          (<>
-            <Link to='/login'>
-              <MenuItem onClick={handleMenuClose} >Đăng Nhập</MenuItem>
+            <MenuItem onClick={handleSignOut}>Đăng xuất</MenuItem>
+            <hr />
+            <MenuItem>Welcome, {user?.displayName}</MenuItem>
+            <MenuItem>
+              <img src={user?.photoURL} alt={user?.displayName} />
+            </MenuItem>
+          </>
+        ) : (
+          <>
+            <Link to="/login">
+              <MenuItem>Đăng Nhập</MenuItem>
             </Link>
 
-            <Link to='/register'>
-              <MenuItem onClick={handleMenuClose} >Đăng Ký</MenuItem>
+            <Link to="/register">
+              <MenuItem onClick={handleMenuClose}>Đăng Ký</MenuItem>
             </Link>
-          </>)
-      }
-
-    </Menu>
+          </>
+        )}
+      </Menu>
+    </div>
   );
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
@@ -224,9 +290,9 @@ export default function HideAppBar(props: Props) {
       <HideOnScroll {...props}>
         <Box sx={{ flexGrow: 1 }}>
           {renderMobileMenu}
-          {renderMenu}
+          {renderMenu1}
 
-          <AppBar style={{ background: '#000'}}>
+          <AppBar style={{ background: '#000' }}>
             <Toolbar>
               <IconButton
                 size="large"
@@ -243,8 +309,8 @@ export default function HideAppBar(props: Props) {
                 component="div"
                 sx={{ display: { xs: 'none', sm: 'block' } }}
               >
-                <Link className='link' to='/'>
-                  ☆๖ۣۜTr̰̃ườñ̰Ğ☆
+                <Link className="link" to="/">
+                  <img src={Logo} alt="Logo" style={{ width: '50px' }} />
                 </Link>
               </Typography>
 
@@ -266,43 +332,46 @@ export default function HideAppBar(props: Props) {
                 component="div"
                 sx={{ display: { xs: 'none', sm: 'block' } }}
               >
-                <ul className='toolbar__navigation'>
+                <ul className="toolbar__navigation">
                   <li>
-                    <Link className='link' to='/'>
+                    <Link className="link" to="/">
                       Home
                     </Link>
                   </li>
 
                   <li>
-                    <Link className='link' to='/shop'>
+                    <Link className="link" to="/shop">
                       Shop
                     </Link>
                   </li>
 
                   <li>
-                    <Link className='link' to='/blog'>
+                    <Link className="link" to="/blog">
                       Blog
                     </Link>
                   </li>
 
                   <li>
-                    <Link className='link' to='/news'>
+                    <Link className="link" to="/news">
                       News
                     </Link>
                   </li>
 
                   <li>
-                    <Link className='link' to='/contacts'>
+                    <Link className="link" to="/contacts">
                       Contacts
                     </Link>
                   </li>
-
                 </ul>
               </Typography>
 
               <Box sx={{ flexGrow: 1 }} />
               <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+                <IconButton
+                  size="large"
+                  aria-label="show 4 new mails"
+                  color="inherit"
+                >
                   <Badge badgeContent={4} color="error">
                     <MailIcon />
                   </Badge>
@@ -325,13 +394,25 @@ export default function HideAppBar(props: Props) {
                   onClick={handleProfileMenuOpen}
                   color="inherit"
                 >
-                  {
-                    getuser ?
-                      <>
-                        <p style={{ fontSize: '13px', margin: "auto" }}>Hello! {getuser.name}</p>
-                        <img style={{ width: '30px', height: "30px", borderRadius: '50%', marginLeft: '7px' }} src='https://f.gxx.garenanow.com/download/0444f087923f4eae52c109cc83db28a50403010000002ab90000000002010044' alt='' />
-                      </> : <AccountCircle />
-                  }
+                  {getuser ? (
+                    <>
+                      <p style={{ fontSize: '13px', margin: 'auto' }}>
+                        Hello! {getuser.name}
+                      </p>
+                      <img
+                        style={{
+                          width: '30px',
+                          height: '30px',
+                          borderRadius: '50%',
+                          marginLeft: '7px',
+                        }}
+                        src="https://f.gxx.garenanow.com/download/0444f087923f4eae52c109cc83db28a50403010000002ab90000000002010044"
+                        alt=""
+                      />
+                    </>
+                  ) : (
+                    <AccountCircle />
+                  )}
                 </IconButton>
               </Box>
               <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
@@ -349,10 +430,8 @@ export default function HideAppBar(props: Props) {
             </Toolbar>
           </AppBar>
         </Box>
-
       </HideOnScroll>
       <p></p>
     </div>
-
   );
 }

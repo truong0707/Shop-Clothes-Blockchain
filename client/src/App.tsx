@@ -8,7 +8,10 @@ import {
 } from 'react-router-dom';
 import Home from './page/Home';
 import NavBar from './components/NavBar';
+<<<<<<< HEAD
 import Login from './page/Login';
+=======
+>>>>>>> develop
 import { useSelector } from 'react-redux';
 import DetailProduct from './page/DetailProduct';
 import Footer from './components/Footer';
@@ -20,6 +23,9 @@ import Testblockchain from './components/Testblockchain';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { AuthContextProvider } from './store/context/AuthContext';
+import Protected from './components/Protected';
+import Profile from './page/Profile';
 
 export interface StateStore {
   userLogin: {
@@ -45,6 +51,7 @@ function App() {
   }, [getuser, user]);
 
   return (
+<<<<<<< HEAD
     <div className="App">
       <Router>
         <NavBar children={undefined} />
@@ -66,6 +73,37 @@ function App() {
         <Footer />
       </Router>
     </div>
+=======
+    <AuthContextProvider>
+      <div className="App">
+        <Router>
+          <NavBar children={undefined} />
+          <Routes>
+            <Route
+              path="/profile"
+              element={
+                <Protected>
+                  <Profile />
+                </Protected>
+              }
+            />
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={'Login'} />
+            <Route path="/register" element={'regiter'} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route
+              path="/detail-product/:productId"
+              element={user ? <DetailProduct /> : <Navigate to="/login" />}
+            />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/test-blockhain" element={<Testblockchain />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </div>
+    </AuthContextProvider>
+>>>>>>> develop
   );
 }
 
