@@ -1,5 +1,5 @@
-import { Button, TextField } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import "../../src/App.css";
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -10,140 +10,107 @@ import { StateStore } from '../App';
 import ErrorMessage from '../components/ErrorMessage';
 import BackdropProgressLoading from '../components/BackdropProgressLoading';
 
-export interface TypeObjectInput {
-    name?: string,
-    sex?: string,
-    nationality?: string,
-    email?: string,
-    password?: string,
-    comfirmPass?: string,
+interface TypeObjectInput {
+  email?: string,
+  password?: string,
 }
-
-export interface ErrorSubmit {
-    name?: string,
-    sex?: string,
-    nationality?: string,
-    email?: string,
-    password?: string,
-    comfirmPass?: string,
-    checkcomfirmPass?: boolean,
+interface ErrorSubmit {
+  email?: string,
+  password?: string,
 }
-
-export interface TypeError {
-    name?: string,
-    sex?: string,
-    nationality?: string,
-    email?: string,
-    password?: string,
-    comfirmPass?: string,
-    checkcomfirmPass?: boolean,
-}
-
-
 
 export default function Login() {
-    const [inputs, setInputs] = useState<TypeObjectInput>({});
-    const [errors, setErrors] = useState<TypeError>({});
+  const [inputs, setInputs] = useState<TypeObjectInput>({});
+  const [errors, setErrors] = useState<ErrorSubmit>({});
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const location = useLocation();
-    const navigate = useNavigate();
-    const redirect = location.search ? location.search.split("=")[1] : "/";
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const nameInput = e.target.name;
+    const valueInput = e.target.value;
 
-    const userLogin = useSelector((state: StateStore) => state.userLogin); // lấy dữ liệu từ store
-    const { error, loading, userInfo } = userLogin;
+    setInputs(state => ({ ...state, [nameInput]: valueInput }));
+  }
 
-    // Xử lý chuyển trang khi đã đăng nhập
-    useEffect(() => {
-        if (userInfo) {
-            navigate(redirect)
-        }
-    }, [userInfo, navigate, redirect])
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    console.log(errors);
+    e.preventDefault();
 
+    let errorSubmit: ErrorSubmit = {};
+    let check = false;
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const nameInput = e.target.name;
-        let valueInput = e.target.value;
-
-        setInputs(state => ({ ...state, [nameInput]: valueInput })) // 
+    // validate user
+    if (inputs.email === undefined || inputs.email === '') {
+      errorSubmit.email = "Bạn vui lòng nhập email của mình !";
+      setErrors(errorSubmit);
+      check = false;
+    } else {
+      setErrors(errorSubmit);
+      check = true;
     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        let errorSubmit: ErrorSubmit = {};
-        // let flag = true;
-        let check = false;
-
-        // validate email
-        if (inputs.email === undefined || inputs.email === '') {
-            errorSubmit.email = "Bạn vui lòng nhập email của mình !";
-            setErrors(errorSubmit);
-            check = false;
-        } else {
-            setErrors(errorSubmit);
-            check = true;
-        }
-
-        // validate password
-        if (inputs.password === undefined || inputs.password === '') {
-            errorSubmit.password = "Bạn vui lòng nhập password của mình !";
-            setErrors(errorSubmit);
-            check = false;
-        } else {
-            setErrors(errorSubmit);
-            check = true;
-        }
-
-        const loginPromise = login(inputs.email, inputs.password);
-        if (check) {
-            loginPromise(dispatch);
-            // dispatch(login(email, password)) => lỗi
-
-        } else {
-            alert('đăng nhập thất bại !')
-        }
+    // validate password
+    if (inputs.password === undefined || inputs.password === '') {
+      errorSubmit.password = "Bạn vui lòng nhập password của mình !";
+      setErrors(errorSubmit);
+      check = false;
+    } else {
+      setErrors(errorSubmit);
+      check = true;
     }
 
-    return (
-        <>
-            <p style={{ marginTop: '80px' }}></p>
-            {loading && <BackdropProgressLoading />}
-            {error &&
-                <>
-                    <ErrorMessage messageError='Tài khoản và mật khẩu không đúng' />
-                </>
-            }
-            <p style={{ height: '10px' }}></p>
-            <div className="container d-flex flex-column justify-content-center align-items-center login-center">
-                <form className="Login col-md-8 col-lg-4 col-11" onSubmit={handleSubmit}>
-                    <TextField
-                        name='email'
-                        type="email"
-                        onChange={handleInputChange}
-                        id="demo-helper-text-aligned"
-                        label="Email"
-                        fullWidth
-                    />
-                    {errors.email === '' || errors.email === undefined ? <p style={{ margin: '0', height: '30px' }}></p> : <p style={{ color: "#D93025", textAlign: 'start', margin: '7px', fontSize: '14px' }}>{errors.email}</p>}
+    const loginPromise = login(inputs.email, inputs.password);
+    if (check) {
+      loginPromise(dispatch);
+      // dispatch(login(email, password)) => lỗi
 
-                    <TextField
-                        onChange={handleInputChange}
-                        id="demo-helper-text-aligned"
-                        label="Password"
-                        type="password"
-                        name='password'
-                        fullWidth
-                    />
-                    {errors.password === '' || errors.password === undefined ? <p style={{ margin: '0', height: '30px' }}></p> : <p style={{ color: "#D93025", textAlign: 'start', margin: '7px', fontSize: '14px' }}>{errors.password}</p>}
+    } else {
+      alert('đăng nhập thất bại !')
+    }
+  }
 
-                    <Button style={{ background: '#000' }} type="submit" variant="contained">Đăng Nhập</Button>
-                    <p>
-                        <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>Create Account</Link>
-                    </p>
-                </form>
+  return (
+    <div style={{ paddingTop: "80px" }} className='body_form'>
+      <div className="wrap_form">
+        <div style={{ color: '#90C43C' }} className="title">ĐĂNG NHẬP</div>
+        <div className="content">
+          <form onSubmit={handleSubmit}>
+            <div className="user-details">
+              <div className="input-box">
+                <span className="details">User Name</span>
+                <input onChange={handleInputChange}
+                  name="email"
+                  type="text"
+                  placeholder="Enter your username"
+                  />
+              </div>
+              {errors.email === '' || errors.email === undefined ? <p style={{ margin: '0', height: '30px' }}></p> : <p style={{ color: "#D93025", textAlign: 'start', marginBottom: '8px', fontSize: '14px' }}>{errors.email}</p>}
+
+              <div className="input-box">
+                <span className="details">Password</span>
+                <input
+                  name="password"
+                  onChange={handleInputChange}
+                  type="password"
+                  placeholder="Enter your password"
+                  />
+              </div>
             </div>
-        </>
-    )
-}
+            {errors.password === '' || errors.email === undefined ? <p style={{ margin: '0', height: '30px' }}></p> : <p style={{ color: "#D93025", textAlign: 'start', padding:0, fontSize: '14px' }}>{errors.password}</p>}
 
+            <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: "200px", background:'pink', margin: "auto" }} className="gender-details">
+              <p>gg</p>
+              <p>gitthub</p>
+              <p>dsd</p>
+            </div>
+
+            <div className="button">
+              <input type="submit" value="ĐĂNG NHẬP" />
+
+            </div>
+          </form>
+        </div>
+      </div >
+    </div >
+  )
+}
