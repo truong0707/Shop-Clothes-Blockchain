@@ -8,8 +8,6 @@ import {
 } from 'react-router-dom';
 import Home from './page/Home';
 import NavBar from './components/NavBar';
-import Login from './page/Login';
-import Register from './page/Register';
 import { useSelector } from 'react-redux';
 import DetailProduct from './page/DetailProduct';
 import Footer from './components/Footer';
@@ -65,8 +63,8 @@ function App() {
                 </Protected>
               }
             />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={'Login'} />
+            <Route path="/register" element={'regiter'} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/blog" element={<Blog />} />
             <Route
