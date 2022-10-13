@@ -22,6 +22,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { AuthContextProvider } from './store/context/AuthContext';
 import Protected from './components/Protected';
 import Profile from './page/Profile';
+import Login from './page/Login';
 
 export interface StateStore {
   userLogin: {
@@ -61,7 +62,7 @@ function App() {
               }
             />
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={'Login'} />
+            <Route path="/login" element={<Login/>} />
             <Route path="/register" element={'regiter'} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/blog" element={<Blog />} />

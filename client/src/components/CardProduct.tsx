@@ -49,7 +49,7 @@ export default function CardProduct(props: MyProps) {
     },
   ];
   return (
-    <Card sx={{ maxWidth: 280, marginBottom: '10px' }} className="mb-card">
+    <Card sx={{ maxWidth: 260, marginBottom: '10px' }} className="mb-card">
       <CardActionArea>
         <CardMedia
           className="card-image"
