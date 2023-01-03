@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import Home from './page/Home';
 import NavBar from './components/NavBar';
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'; //8.0.2
 import DetailProduct from './page/DetailProduct';
 import Footer from './components/Footer';
 import Shop from './page/Shop';
@@ -47,8 +47,8 @@ function App() {
   }, [getuser, user]);
 
   return (
-    <AuthContextProvider>
-      <div className="App">
+    <div className="App">
+      <AuthContextProvider>
         <Router>
           <NavBar children={undefined} />
           <Routes>
@@ -74,8 +74,8 @@ function App() {
           </Routes>
           <Footer />
         </Router>
-      </div>
-    </AuthContextProvider>
+      </AuthContextProvider>
+    </div>
   );
 }
 
